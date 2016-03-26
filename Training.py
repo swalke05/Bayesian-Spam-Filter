@@ -4,6 +4,8 @@
 
 import os
 import sys
+import re
+from collections import Counter
 
 def generateDictionary(hamDictionary, spamDictionary):
     labelsFile = "spam-mail.tr.label"
@@ -11,23 +13,35 @@ def generateDictionary(hamDictionary, spamDictionary):
     spamLabels = []
     hamFiles = []
     spamFiles = []
+    hamCollection = []
 
     parseLabels(labelsFile, hamLabels, spamLabels)
     splitFiles(hamLabels, spamLabels, hamFiles, spamFiles)
 
     for file in hamFiles:
         tokenizeFile("training/"+file, hamDictionary)
+    for file in spamFiles:
+        tokenizeFile("training/"+file, spamDictionary)
 
-    #tokenizeFile(spamFiles, spamDictionary)
+    hamCollection = Counter(hamDictionary).most_common()
+    spamCollection = Counter(spamDictionary).most_common()
+
+    hamDictionary = hamCollection
+    spamDictionary = spamCollection
 
 def tokenizeFile(file, dictionary):
+    fileContents = ""
+
     with open(file) as f:
         content = f.readlines()
 
     for line in content:
-        words = line.split(' ')
-        for word in words:
-            print word
+        fileContents+=line
+
+    words = re.findall(r"[\w']+", fileContents)
+
+    for word in words:
+        dictionary.append(word)
 
 def splitFiles(hamLabels, spamLabels, hamFiles, spamFiles):
     files = os.listdir('training')
@@ -38,8 +52,6 @@ def splitFiles(hamLabels, spamLabels, hamFiles, spamFiles):
             hamFiles.append(file)
         else:
             spamFiles.append(file)
-
-
 
 def parseLabels ( labelsFile, hamLabels, spamLabels ):
     with open(labelsFile) as f:
