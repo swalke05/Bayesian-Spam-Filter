@@ -5,7 +5,7 @@
 import os
 import sys
 
-def generateDictionary():
+def generateDictionary(hamDictionary, spamDictionary):
     labelsFile = "spam-mail.tr.label"
     hamLabels = []
     spamLabels = []
@@ -14,8 +14,20 @@ def generateDictionary():
 
     parseLabels(labelsFile, hamLabels, spamLabels)
     splitFiles(hamLabels, spamLabels, hamFiles, spamFiles)
+
     for file in hamFiles:
-        print file
+        tokenizeFile("training/"+file, hamDictionary)
+
+    #tokenizeFile(spamFiles, spamDictionary)
+
+def tokenizeFile(file, dictionary):
+    with open(file) as f:
+        content = f.readlines()
+
+    for line in content:
+        words = line.split(' ')
+        for word in words:
+            print word
 
 def splitFiles(hamLabels, spamLabels, hamFiles, spamFiles):
     files = os.listdir('training')
