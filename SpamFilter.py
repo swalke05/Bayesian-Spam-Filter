@@ -1,11 +1,17 @@
 import sys
 from Training import *
+from Testing import *
+from decimal import *
 
 if __name__ == "__main__":
-    hamDictionary = []
-    spamDictionary = []
+    dictionaries = ()
 
-    generateDictionary(hamDictionary, spamDictionary)
+    dictionaries = generateDictionaries()
+    hamDictionary = dictionaries[0]
+    spamDictionary = dictionaries[1]
 
+    chance = getChanceHamContains("password",hamDictionary)
+    print chance
+    
 
 

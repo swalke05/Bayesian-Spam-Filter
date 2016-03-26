@@ -5,29 +5,32 @@
 import os
 import sys
 import re
+import copy
 from collections import Counter
 
-def generateDictionary(hamDictionary, spamDictionary):
+def generateDictionaries():
     labelsFile = "spam-mail.tr.label"
     hamLabels = []
     spamLabels = []
     hamFiles = []
     spamFiles = []
     hamCollection = []
+    spamCollection = []
+    hamWords = []
+    spamWords = []
 
     parseLabels(labelsFile, hamLabels, spamLabels)
     splitFiles(hamLabels, spamLabels, hamFiles, spamFiles)
 
     for file in hamFiles:
-        tokenizeFile("training/"+file, hamDictionary)
+        tokenizeFile("training/"+file, hamWords)
     for file in spamFiles:
-        tokenizeFile("training/"+file, spamDictionary)
+        tokenizeFile("training/"+file, spamWords)
 
-    hamCollection = Counter(hamDictionary).most_common()
-    spamCollection = Counter(spamDictionary).most_common()
+    hamCollection = Counter(hamWords).most_common()
+    spamCollection = Counter(spamWords).most_common()
 
-    hamDictionary = hamCollection
-    spamDictionary = spamCollection
+    return (hamCollection,spamCollection)
 
 def tokenizeFile(file, dictionary):
     fileContents = ""
