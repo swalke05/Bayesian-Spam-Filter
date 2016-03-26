@@ -5,19 +5,36 @@
 import os
 import sys
 
-def parseLabels ( labelsFile, hamFiles, spamFiles ):
+def generateDictionary():
+    labelsFile = "spam-mail.tr.label"
+    hamLabels = []
+    spamLabels = []
+    hamFiles = []
+    spamFiles = []
+
+    parseLabels(labelsFile, hamLabels, spamLabels)
+    splitFiles(hamLabels, spamLabels, hamFiles, spamFiles)
+    for file in hamFiles:
+        print file
+
+def splitFiles(hamLabels, spamLabels, hamFiles, spamFiles):
+    files = os.listdir('training')
+
+    for file in files:
+        label = (file.split('_')[1]).split('.')[0]
+        if (label in hamLabels):
+            hamFiles.append(file)
+        else:
+            spamFiles.append(file)
+
+
+
+def parseLabels ( labelsFile, hamLabels, spamLabels ):
     with open(labelsFile) as f:
         content = f.readlines()
 
     for label in content:
-        print label.split(',')[1]
         if (int(label.split(',')[1]) == 0):
-            spamFiles.append(label.split(',')[0])
+            spamLabels.append(label.split(',')[0])
         else:
-            hamFiles.append(label.split(',')[0])
-
-labelsFile = "spam-mail.tr.label"
-hamFiles = []
-spamFiles = []
-
-parseLabels(labelsFile, hamFiles, spamFiles)
+            hamLabels.append(label.split(',')[0])
