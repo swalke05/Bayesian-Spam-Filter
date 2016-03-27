@@ -23,8 +23,12 @@ if __name__ == "__main__":
     #chance = estimateClassContains("",spamDictionary, numSpamEmails)
     #print chance
 
-    spamicity = calcSpamicity("FREE", hamDictionary, spamDictionary, numHamEmails, numSpamEmails)
-    print spamicity
+    spamicity = calcSpamicity('training/TRAIN_3.eml', hamDictionary, spamDictionary, numHamEmails, numSpamEmails)
+    print "spamicity = ",spamicity
+    if (spamicity >= 80):
+        print "message is spam"
+    else:
+        print "message is NOT spam"
     
 
 
