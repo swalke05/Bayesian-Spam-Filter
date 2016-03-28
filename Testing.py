@@ -51,6 +51,7 @@ def calcSpamicity(email, hamDictionary, spamDictionary, numHamEmails, numSpamEma
     emailWords = [] #no duplicates
     condensed = []
     info = ()
+    keywords = []
 
     tokenizeFile(email, allEmailWords)
 
@@ -73,20 +74,22 @@ def calcSpamicity(email, hamDictionary, spamDictionary, numHamEmails, numSpamEma
         #Less than 5 occurences in both datasets
         if (numOccurrences >= 5 and (hamEstimate != 0 and spamEstimate != 0)):
             chanceSpam = calcChanceSpam(hamEstimate, spamEstimate)
-            print chanceSpam
             if (len(numeratorList) >= 10):
                 if ((abs(Decimal(0.5) - chanceSpam)) > (abs(Decimal(0.5) - (min(numeratorList))))):
                     index = numeratorList.index(min(numeratorList))
                     numeratorList[index] = chanceSpam
                     denominatorList[index] = 1-chanceSpam
+                    keywords[index] = word
             else:
                 numeratorList.append(chanceSpam)
                 denominatorList.append(1-chanceSpam)
+                keywords.append(word)
 
     print "numerator"
     print numeratorList
     print "denominator" #remember to add numerator to denominator
     print denominatorList
+    print keywords
 
     numerator = reduce(mul, numeratorList, 1)
     denominator = reduce(mul, denominatorList, 1) + numerator

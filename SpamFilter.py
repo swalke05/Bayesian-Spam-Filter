@@ -7,7 +7,16 @@ numHamEmails = 1721 #Total number of ham emails from learning phase
 numSpamEmails = 779 #Total number of spam emails from learning phase
 
 if __name__ == "__main__":
+
+
     dictionaries = ()
+
+    if (len(sys.argv) == 2):
+        email = sys.argv[1]
+    else:
+        print "ERROR - Please provide .eml file"
+        sys.exit()
+
 
     dictionaries = generateDictionaries()
     hamDictionary = dictionaries[0]
@@ -23,7 +32,7 @@ if __name__ == "__main__":
     #chance = estimateClassContains("",spamDictionary, numSpamEmails)
     #print chance
 
-    spamicity = calcSpamicity('training/TRAIN_3.eml', hamDictionary, spamDictionary, numHamEmails, numSpamEmails)
+    spamicity = calcSpamicity(email, hamDictionary, spamDictionary, numHamEmails, numSpamEmails)
     print "spamicity = ",spamicity
     if (spamicity >= 80):
         print "message is spam"
