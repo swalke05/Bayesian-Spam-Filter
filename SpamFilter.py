@@ -3,8 +3,8 @@ from Training import *
 from Testing import *
 from decimal import *
 
-numHamEmails = 1721 #Total number of ham emails from learning phase
-numSpamEmails = 779 #Total number of spam emails from learning phase
+numHamEmails = 1077 #Total number of ham emails from learning phase
+numSpamEmails = 1077 #Total number of spam emails from learning phase
 
 if __name__ == "__main__":
 

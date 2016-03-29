@@ -18,35 +18,37 @@ def generateDictionaries():
     spamCollection = []
     hamWords = []
     spamWords = []
+    path = "dataset2/TRAINING/"
 
     parseLabels(labelsFile, hamLabels, spamLabels)
 
     splitFiles(hamLabels, spamLabels, hamFiles, spamFiles)
 
-    print "ham files"
+    #print "ham files"
     for file in hamFiles:
-        print file
-        #tokenizeFile("dataset2/TRAINING/"+file, hamWords)
-    print "spam files"
+        #print file
+        tokenizeFile(path+file[0], hamWords)
+    #print "spam files"
     for file in spamFiles:
-        print file
-        #tokenizeFile("dataset2/TRAINING/"+file, spamWords)
+        #print file
+        tokenizeFile(path+file[0], spamWords)
 
-    print "num hamfiles: ", len(hamFiles)
-    print "num spamfiles: ", len(spamFiles)
-    sys.exit()
+    # print "num hamfiles: ", len(hamFiles)
+    # print "num spamfiles: ", len(spamFiles)
+    # sys.exit()
+
     hamCollection = Counter(hamWords).most_common()
     spamCollection = Counter(spamWords).most_common()
 
 
-    print ("ham YO")
-    for token in hamCollection:
-        print token
-    print ("spam YO")
-    for token in spamCollection:
-        print token
+    # print ("ham YO")
+    # for token in hamCollection:
+    #     print token
+    # print ("spam YO")
+    # for token in spamCollection:
+    #     print token
 
-    sys.exit()
+    # sys.exit()
 
 
     return (hamCollection,spamCollection)
@@ -164,6 +166,10 @@ def isWord(word):
         return False
     elif (word.lower() == "you'll"):
         return False
+    elif (word.lower() == "vertical"):
+        return False
+    elif (word.lower() == "horizontal"):
+        return False
 
 
 
@@ -194,11 +200,11 @@ def splitFiles(hamLabels, spamLabels, hamFiles, spamFiles):
         label = file.rsplit()
         if label == "Store":
             continue
-        
+
         if (label in hamLabels):
-            hamFiles.append(label)
-        else:
-            spamFiles.append(label)
+            hamFiles.append(file.rsplit())
+        elif (label in spamLabels):
+            spamFiles.append(file.rsplit())
 
 def parseLabels ( labelsFile, hamLabels, spamLabels ):
     with open(labelsFile) as f:

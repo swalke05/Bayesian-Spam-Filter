@@ -82,6 +82,8 @@ def calcSpamicity(email, hamDictionary, spamDictionary, numHamEmails, numSpamEma
             chanceSpam = calcChanceSpam(hamEstimate, spamEstimate)
             if (len(numeratorList) >= 10):
                 if ((abs(Decimal(0.5) - chanceSpam)) > (abs(Decimal(0.5) - (min(numeratorList))))):
+                    print "absolute .5 -",chanceSpam, "=", abs(Decimal(0.5) - chanceSpam)
+                    print "absolute .5 -",min(numeratorList), "=", abs(Decimal(0.5) - min(numeratorList) )
                     index = numeratorList.index(min(numeratorList))
                     numeratorList[index] = chanceSpam
                     denominatorList[index] = 1-chanceSpam
