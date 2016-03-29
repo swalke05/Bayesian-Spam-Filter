@@ -18,13 +18,14 @@ if __name__ == "__main__":
         print "ERROR - Please provide .eml file"
         sys.exit()
 
+#******************************************************************************************
+    #generateDictionaries()                #ONLY CALL THIS IF CREATING NEW DICTIONARIES
+#******************************************************************************************
 
-    #generateDictionaries()
     f = open('HAM_DICTIONARY', 'r')
     content = f.readlines()
     for line in content:
         hamDictionary.append(line)
-
     f.close
 
     f = open('SPAM_DICTIONARY', 'r')
@@ -32,8 +33,6 @@ if __name__ == "__main__":
     for line in content:
         spamDictionary.append(line)
     f.close
-
-
 
     # hamDictionary = dictionaries[0]
     # spamDictionary = dictionaries[1]
@@ -45,16 +44,9 @@ if __name__ == "__main__":
     #     print item
     # sys.exit()
 
-    #chance = estimateClassContains("Guaranteed",hamDictionary, numHamEmails)
-    #chance = estimateClassContains("",spamDictionary, numSpamEmails)
-    #print chance
-
     spamicity = calcSpamicity(email, hamDictionary, spamDictionary, numHamEmails, numSpamEmails)
     print "spamicity = ",spamicity
     if (spamicity >= 70):
         print "message is spam"
     else:
         print "message is NOT spam"
-    
-
-

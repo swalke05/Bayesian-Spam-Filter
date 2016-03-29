@@ -64,7 +64,6 @@ def calcSpamicity(email, hamDictionary, spamDictionary, numHamEmails, numSpamEma
     emailWords = set(allEmailWords) #remove duplicates
 
     for word in emailWords:
-        print (word)
         numOccurrences = 0
         #print "word in email:", word
         # #Calculate P(word|ham)
@@ -73,20 +72,17 @@ def calcSpamicity(email, hamDictionary, spamDictionary, numHamEmails, numSpamEma
         hamEstimate = info[0]
         numOccurrences = info[1]
 
-        print "hamEstimate = ",hamEstimate
         # #Calculate P(word|spam)
         info = estimateClassContains(word, spamDictionary, numSpamEmails)
         spamEstimate = info[0]
         numOccurrences += info[1]
-        print "spamEstimate = ",spamEstimate
 
         #Less than 5 occurences in both datasets
         if (numOccurrences >= 5 and (hamEstimate != 0 and spamEstimate != 0)):
             chanceSpam = calcChanceSpam(hamEstimate, spamEstimate)
             if (len(numeratorList) >= 10):
                 if ((abs(Decimal(0.5) - chanceSpam)) > (abs(Decimal(0.5) - (min(numeratorList))))):
-                    print "absolute .5 -",chanceSpam, "=", abs(Decimal(0.5) - chanceSpam)
-                    print "absolute .5 -",min(numeratorList), "=", abs(Decimal(0.5) - min(numeratorList) )
+
                     index = numeratorList.index(min(numeratorList))
                     numeratorList[index] = chanceSpam
                     denominatorList[index] = 1-chanceSpam

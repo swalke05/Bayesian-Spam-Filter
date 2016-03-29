@@ -53,7 +53,6 @@ def generateDictionaries():
 
     f = open('HAM_DICTIONARY','w')
     for item in hamCollection:
-        print "item = ", item
         f.write(str(item)+"\n") # python will convert \n to os.linesep
     f.close() # you can omit in most cases as the destructor will call it
 
