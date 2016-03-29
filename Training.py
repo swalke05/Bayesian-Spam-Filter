@@ -2,6 +2,11 @@
 #Spencer Walker
 #0715530
 
+#This file contains functions for the "learning" process of the spam filter
+#When the generateDictionaries() function is called in main, this file is used to 
+#Generate the dictionaries based on the label file to distinguish between ham/spam
+#These functions are not called in the normal procedure of detecting spam (once dicttionary files exit)
+
 import os
 import sys
 import re
@@ -9,7 +14,7 @@ import copy
 from collections import Counter
 
 def generateDictionaries():
-    labelsFile = "dataset2/SPAMTrain.label"
+    labelsFile = "training/SPAMTrain.label"
     hamLabels = []
     spamLabels = []
     hamFiles = []
@@ -18,49 +23,72 @@ def generateDictionaries():
     spamCollection = []
     hamWords = []
     spamWords = []
-    path = "dataset2/TRAINING/"
+    path = "training/"
 
     parseLabels(labelsFile, hamLabels, spamLabels)
     splitFiles(hamLabels, spamLabels, hamFiles, spamFiles)
 
-
-
     #print "ham files"
     for file in hamFiles:
-        #print file
+        print file
         tokenizeFile(path+file[0], hamWords)
     #print "spam files"
     for file in spamFiles:
         #print file
         tokenizeFile(path+file[0], spamWords)
 
-    # print "num hamfiles: ", len(hamFiles)
-    # print "num spamfiles: ", len(spamFiles)
-    # sys.exit()
-
     hamCollection = Counter(hamWords).most_common()
     spamCollection = Counter(spamWords).most_common()
 
-
-    # print ("ham YO")
-    # for token in hamCollection:
-    #     print token
-    # print ("spam YO")
-    # for token in spamCollection:
-    #     print token
-
-    # sys.exit()
-
     f = open('HAM_DICTIONARY','w')
     for item in hamCollection:
-        f.write(str(item)+"\n") # python will convert \n to os.linesep
-    f.close() # you can omit in most cases as the destructor will call it
+        f.write(str(item)+"\n") 
+    f.close()
 
     f = open('SPAM_DICTIONARY','w')
     for item in spamCollection:
-        f.write(str(item)+"\n") # python will convert \n to os.linesep
-    f.close() # you can omit in most cases as the destructor will call it
+        f.write(str(item)+"\n") 
+    f.close() 
 
+def tokenizeFile(file, dictionary):
+    fileContents = ""
+
+    with open(file) as f:
+        content = f.readlines()
+
+    for line in content:
+        fileContents+=line
+
+    words = re.findall(r"[\w']+", fileContents)
+
+    for word in words:
+        if (isWord(word)):
+            if (len(word) > 4):
+                dictionary.append(word)
+
+def splitFiles(hamLabels, spamLabels, hamFiles, spamFiles):
+    files = os.listdir('training/')
+
+    for file in files:
+        label = file.rsplit()
+        if label == "Store":
+            continue
+
+        if (label in hamLabels):
+            hamFiles.append(file.rsplit())
+        elif (label in spamLabels):
+            spamFiles.append(file.rsplit())
+
+def parseLabels ( labelsFile, hamLabels, spamLabels ):
+    with open(labelsFile) as f:
+        content = f.readlines()
+
+    for label in content:
+
+        if (int(label.split(' ')[0]) == 0):
+            spamLabels.append((label.split(' ')[1]).rsplit())
+        else:
+            hamLabels.append((label.split(' ')[1]).rsplit())
 
 def isWord(word):
     if (word.lower() == "cellpadding"):
@@ -180,48 +208,5 @@ def isWord(word):
     elif (word.lower() == "horizontal"):
         return False
 
-
-
     else:
         return True
-
-
-def tokenizeFile(file, dictionary):
-    fileContents = ""
-
-    with open(file) as f:
-        content = f.readlines()
-
-    for line in content:
-        fileContents+=line
-
-    words = re.findall(r"[\w']+", fileContents)
-
-    for word in words:
-        if (isWord(word)):
-            if (len(word) > 4):
-                dictionary.append(word)
-
-def splitFiles(hamLabels, spamLabels, hamFiles, spamFiles):
-    files = os.listdir('dataset2/TRAINING/')
-
-    for file in files:
-        label = file.rsplit()
-        if label == "Store":
-            continue
-
-        if (label in hamLabels):
-            hamFiles.append(file.rsplit())
-        elif (label in spamLabels):
-            spamFiles.append(file.rsplit())
-
-def parseLabels ( labelsFile, hamLabels, spamLabels ):
-    with open(labelsFile) as f:
-        content = f.readlines()
-
-    for label in content:
-
-        if (int(label.split(' ')[0]) == 0):
-            spamLabels.append((label.split(' ')[1]).rsplit())
-        else:
-            hamLabels.append((label.split(' ')[1]).rsplit())

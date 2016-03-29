@@ -11,14 +11,12 @@ def estimateClassContains(word, dictionary, numEmails):
     occurrences = 0
 
     for entry in dictionary:
-        #print i
         i+=1
-        #print entry[0]
+
         dictWord = entry.split('\'')[1].split('\'')[0]
         occurrences = entry.split(' ')[1].split(')')[0]
 
         if (dictWord == word):
-            print dictWord, "appears", occurrences, "times in", numEmails, "emails"
             if (occurrences > 0):
                 getcontext().prec = 3
                 estimate = Decimal(occurrences)/Decimal(numEmails)
@@ -26,9 +24,6 @@ def estimateClassContains(word, dictionary, numEmails):
             else:
                 estimate = 0
                 break
-    #if (estimate == 0):
-
-        #print "less than 5 occurrences for", word
 
     return (estimate, occurrences)
 
@@ -43,8 +38,6 @@ def calcChanceHam(hamEstimate, spamEstimate):
 #Calculate P(spam | word)
 def calcChanceSpam(hamEstimate, spamEstimate):
     chanceSpam = 0
-    # print hamEstimate
-    # print spamEstimate
     chanceSpam = spamEstimate/(hamEstimate + spamEstimate)
 
     return chanceSpam
@@ -65,8 +58,6 @@ def calcSpamicity(email, hamDictionary, spamDictionary, numHamEmails, numSpamEma
 
     for word in emailWords:
         numOccurrences = 0
-        #print "word in email:", word
-        # #Calculate P(word|ham)
 
         info = estimateClassContains(word, hamDictionary, numHamEmails)
         hamEstimate = info[0]
@@ -77,7 +68,7 @@ def calcSpamicity(email, hamDictionary, spamDictionary, numHamEmails, numSpamEma
         spamEstimate = info[0]
         numOccurrences += info[1]
 
-        #Less than 5 occurences in both datasets
+        #Must be greater than 5 occurences in both combined datasets
         if (numOccurrences >= 5 and (hamEstimate != 0 and spamEstimate != 0)):
             chanceSpam = calcChanceSpam(hamEstimate, spamEstimate)
             if (len(numeratorList) >= 10):
@@ -102,13 +93,5 @@ def calcSpamicity(email, hamDictionary, spamDictionary, numHamEmails, numSpamEma
     denominator = reduce(mul, denominatorList, 1) + numerator
 
     spamicity = (numerator/denominator)*100
-    
-
-        #chanceSpam = calcChanceSpam(hamEstimate, spamEstimate)
-        #chanceHam = calcChanceHam(hamEstimate, spamEstimate)
 
     return spamicity
-
-
-
-

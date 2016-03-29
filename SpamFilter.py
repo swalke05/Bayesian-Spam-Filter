@@ -1,3 +1,14 @@
+#SpamFilter.py
+#Spencer Walker
+#0715530
+
+
+#This file contains the main method for the SpamFilter. The spam filter allows for a .eml file to be passed in as a command line argument, then determines if it is spam or not using the Bayesian formula
+
+#In the event that a new "learning process" is taking place, the generateDictionaries() call should be uncommented
+
+#If the library files already exist, only functions from the Testing file will be called and the execution time will be drastically reduced
+
 import sys
 from Training import *
 from Testing import *
@@ -34,17 +45,9 @@ if __name__ == "__main__":
         spamDictionary.append(line)
     f.close
 
-    # hamDictionary = dictionaries[0]
-    # spamDictionary = dictionaries[1]
-
-    # for item in hamDictionary:
-    #     print item
-    # print "between"
-    # for item in spamDictionary:
-    #     print item
-    # sys.exit()
 
     spamicity = calcSpamicity(email, hamDictionary, spamDictionary, numHamEmails, numSpamEmails)
+
     print "spamicity = ",spamicity
     if (spamicity >= 70):
         print "message is spam"
