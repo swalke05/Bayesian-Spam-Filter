@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
     spamicity = calcSpamicity(email, hamDictionary, spamDictionary, numHamEmails, numSpamEmails)
     print "spamicity = ",spamicity
-    if (spamicity >= 80):
+    if (spamicity >= 70):
         print "message is spam"
     else:
         print "message is NOT spam"

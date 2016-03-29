@@ -4,21 +4,24 @@ from Training import tokenizeFile
 from operator import mul
 import math
 
+# Calculate P(word | spam)
 def estimateClassContains(word, dictionary, numEmails):
     estimate = 0
     i = 0
+
     for entry in dictionary:
         #print i
         i+=1
         #print entry[0]
         if (entry[0] == word):
-            #print entry[0], "appears", entry[1], "times in", numEmails, "emails"
-            if (entry[1] >= 5):
+            print entry[0], "appears", entry[1], "times in", numEmails, "emails"
+            if (entry[1] >= 0):
                 getcontext().prec = 3
                 estimate = Decimal(entry[1])/Decimal(numEmails)
                 break
             else:
                 estimate = 0
+
                 break
     #if (estimate == 0):
 
@@ -58,18 +61,21 @@ def calcSpamicity(email, hamDictionary, spamDictionary, numHamEmails, numSpamEma
     emailWords = set(allEmailWords) #remove duplicates
 
     for word in emailWords:
+        print (word)
         numOccurrences = 0
         #print "word in email:", word
         # #Calculate P(word|ham)
+
         info = estimateClassContains(word, hamDictionary, numHamEmails)
         hamEstimate = info[0]
         numOccurrences = info[1]
-        #print "hamEstimate = ",hamEstimate
+
+        print "hamEstimate = ",hamEstimate
         # #Calculate P(word|spam)
         info = estimateClassContains(word, spamDictionary, numSpamEmails)
         spamEstimate = info[0]
         numOccurrences += info[1]
-        #print "spamEstimate = ",spamEstimate
+        print "spamEstimate = ",spamEstimate
 
         #Less than 5 occurences in both datasets
         if (numOccurrences >= 5 and (hamEstimate != 0 and spamEstimate != 0)):
