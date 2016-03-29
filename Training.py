@@ -30,7 +30,7 @@ def generateDictionaries():
 
     #print "ham files"
     for file in hamFiles:
-        print file
+        #print file
         tokenizeFile(path+file[0], hamWords)
     #print "spam files"
     for file in spamFiles:

@@ -26,7 +26,7 @@ if __name__ == "__main__":
     if (len(sys.argv) == 2):
         email = sys.argv[1]
     else:
-        print "ERROR - Please provide .eml file"
+        print ("ERROR - Please provide .eml file")
         sys.exit()
 
 #******************************************************************************************
@@ -48,8 +48,8 @@ if __name__ == "__main__":
 
     spamicity = calcSpamicity(email, hamDictionary, spamDictionary, numHamEmails, numSpamEmails)
 
-    print "spamicity = ",spamicity
+    print ("spamicity = ",spamicity)
     if (spamicity >= 70):
-        print "message is spam"
+        print ("message is spam")
     else:
-        print "message is NOT spam"
+        print ("message is NOT spam")

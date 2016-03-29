@@ -3,8 +3,23 @@ from decimal import *
 from Training import tokenizeFile
 from operator import mul
 import math
+import functools
+import operator
 
 # Calculate P(word | spam)
+
+def float_to_decimal(f):
+    "Convert a floating point number to a Decimal with no loss of information"
+    n, d = f.as_integer_ratio()
+    numerator, denominator = Decimal(n), Decimal(d)
+    ctx = Context(prec=60)
+    result = ctx.divide(numerator, denominator)
+    while ctx.flags[Inexact]:
+        ctx.flags[Inexact] = False
+        ctx.prec *= 2
+        result = ctx.divide(numerator, denominator)
+    return result
+
 def estimateClassContains(word, dictionary, numEmails):
     estimate = 0
     i = 0
@@ -14,7 +29,7 @@ def estimateClassContains(word, dictionary, numEmails):
         i+=1
 
         dictWord = entry.split('\'')[1].split('\'')[0]
-        occurrences = entry.split(' ')[1].split(')')[0]
+        occurrences = int(entry.split(' ')[1].split(')')[0])
 
         if (dictWord == word):
             if (occurrences > 0):
@@ -72,7 +87,7 @@ def calcSpamicity(email, hamDictionary, spamDictionary, numHamEmails, numSpamEma
         if (numOccurrences >= 5 and (hamEstimate != 0 and spamEstimate != 0)):
             chanceSpam = calcChanceSpam(hamEstimate, spamEstimate)
             if (len(numeratorList) >= 10):
-                if ((abs(Decimal(0.5) - chanceSpam)) > (abs(Decimal(0.5) - (min(numeratorList))))):
+                if ((abs(float_to_decimal(0.5) - chanceSpam)) > (abs(float_to_decimal(0.5) - (min(numeratorList))))):
 
                     index = numeratorList.index(min(numeratorList))
                     numeratorList[index] = chanceSpam
@@ -83,14 +98,14 @@ def calcSpamicity(email, hamDictionary, spamDictionary, numHamEmails, numSpamEma
                 denominatorList.append(1-chanceSpam)
                 keywords.append(word)
 
-    print "numerator"
-    print numeratorList
-    print "denominator" #remember to add numerator to denominator
-    print denominatorList
-    print keywords
+    print ("numerator")
+    print (numeratorList)
+    print ("denominator") #remember to add numerator to denominator
+    print (denominatorList)
+    print (keywords)
 
-    numerator = reduce(mul, numeratorList, 1)
-    denominator = reduce(mul, denominatorList, 1) + numerator
+    numerator = functools.reduce(operator.mul, numeratorList, 1)
+    denominator = functools.reduce(operator.mul, denominatorList, 1) + numerator
 
     spamicity = (numerator/denominator)*100
 
