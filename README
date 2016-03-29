@@ -1,0 +1,26 @@
+*************************
+Bayesian Spam Filter
+
+Spencer Walker
+0715530
+March 29, 2016
+*************************
+
+Running the program
+*************************
+from the a5 directory enter: python SpamFilter.py testing/TRAIN_10.email
+
+Creating new libraries
+*************************
+Uncomment line 33 to call the function that creates new libraries. File paths must be modified accordingly
+to point at the new dataset for the learning phase
+
+Testing
+*************************
+step10tests/ and step11tests/ contain the output files for the test cases shown in the report
+
+
+
+
+
+
