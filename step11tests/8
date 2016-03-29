@@ -1,0 +1,7 @@
+numerator
+[Decimal('0.841'), Decimal('0.834'), Decimal('0.572'), Decimal('0.629'), Decimal('0.00499'), Decimal('0.468'), Decimal('0.652'), Decimal('0.970'), Decimal('0.939'), Decimal('0.333')]
+denominator
+[Decimal('0.159'), Decimal('0.166'), Decimal('0.428'), Decimal('0.371'), Decimal('0.995'), Decimal('0.532'), Decimal('0.348'), Decimal('0.030'), Decimal('0.061'), Decimal('0.667')]
+['mails', 'interest', 'links', 'people', 'REQUEST', 'appreciate', 'around', 'dynamic', 'direct', 'mistaken']
+spamicity =  99.2
+message is spam

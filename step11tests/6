@@ -1,0 +1,7 @@
+numerator
+[Decimal('0.716'), Decimal('0.784'), Decimal('0.821'), Decimal('0.739'), Decimal('0.528'), Decimal('0.232'), Decimal('0.678'), Decimal('0.250'), Decimal('0.637'), Decimal('0.0209')]
+denominator
+[Decimal('0.284'), Decimal('0.216'), Decimal('0.179'), Decimal('0.261'), Decimal('0.472'), Decimal('0.768'), Decimal('0.322'), Decimal('0.750'), Decimal('0.363'), Decimal('0.979')]
+['questions', 'address', 'month', 'including', 'comments', 'linux', 'message', 'digest', 'containing', 'configuration']
+spamicity =  51.2
+message is NOT spam

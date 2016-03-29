@@ -1,0 +1,7 @@
+numerator
+[Decimal('0.286'), Decimal('0.704'), Decimal('0.291'), Decimal('0.684'), Decimal('0.0263'), Decimal('0.617'), Decimal('0.274'), Decimal('0.246'), Decimal('0.875'), Decimal('0.331')]
+denominator
+[Decimal('0.714'), Decimal('0.296'), Decimal('0.709'), Decimal('0.316'), Decimal('0.974'), Decimal('0.383'), Decimal('0.726'), Decimal('0.754'), Decimal('0.125'), Decimal('0.669')]
+['interpretation', 'quoted', 'bandwidth', 'Internet', 'merge', 'based', 'seems', 'internal', 'combine', 'might']
+spamicity =  1.53
+message is NOT spam

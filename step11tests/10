@@ -1,0 +1,7 @@
+numerator
+[Decimal('0.125'), Decimal('0.6'), Decimal('0.715'), Decimal('0.597'), Decimal('0.191'), Decimal('0.00499'), Decimal('0.291'), Decimal('0.502'), Decimal('0.232'), Decimal('0.360')]
+denominator
+[Decimal('0.875'), Decimal('0.4'), Decimal('0.285'), Decimal('0.403'), Decimal('0.809'), Decimal('0.995'), Decimal('0.709'), Decimal('0.498'), Decimal('0.768'), Decimal('0.640')]
+['desktops', 'increasingly', 'phones', 'share', 'servers', 'REQUEST', 'bandwidth', 'migration', 'linux', 'download']
+spamicity =  0.00661
+message is NOT spam

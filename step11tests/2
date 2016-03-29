@@ -1,0 +1,7 @@
+numerator
+[Decimal('0.403'), Decimal('0.854'), Decimal('0.763'), Decimal('0.880'), Decimal('0.777'), Decimal('0.778'), Decimal('0.522'), Decimal('0.857'), Decimal('0.833'), Decimal('0.715')]
+denominator
+[Decimal('0.597'), Decimal('0.146'), Decimal('0.237'), Decimal('0.120'), Decimal('0.223'), Decimal('0.222'), Decimal('0.478'), Decimal('0.143'), Decimal('0.167'), Decimal('0.285')]
+['course', 'sexually', 'classes', 'personals', 'click', 'waiting', 'other', 'eating', 'teens', 'reading']
+spamicity =  100
+message is spam

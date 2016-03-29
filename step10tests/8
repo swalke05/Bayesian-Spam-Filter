@@ -1,0 +1,7 @@
+numerator
+[Decimal('0.891'), Decimal('0.900'), Decimal('0.954'), Decimal('0.731'), Decimal('0.182'), Decimal('0.936'), Decimal('0.800'), Decimal('0.775'), Decimal('0.622'), Decimal('0.788')]
+denominator
+[Decimal('0.109'), Decimal('0.100'), Decimal('0.046'), Decimal('0.269'), Decimal('0.818'), Decimal('0.064'), Decimal('0.200'), Decimal('0.225'), Decimal('0.378'), Decimal('0.212')]
+['neither', 'Effective', 'denied', 'yourself', 'record', 'Natural', 'Harder', 'guess', 'Status', 'csmining']
+spamicity =  100
+message is spam

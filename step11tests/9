@@ -1,0 +1,7 @@
+numerator
+[Decimal('0.791'), Decimal('0.502'), Decimal('0.821'), Decimal('0.724'), Decimal('0.882'), Decimal('0.0436'), Decimal('0.686'), Decimal('0.722'), Decimal('0.678'), Decimal('0.0957')]
+denominator
+[Decimal('0.209'), Decimal('0.498'), Decimal('0.179'), Decimal('0.276'), Decimal('0.118'), Decimal('0.956'), Decimal('0.314'), Decimal('0.278'), Decimal('0.322'), Decimal('0.904')]
+['website', 'because', 'reserved', 'Copyright', 'Personal', 'Discuss', 'Online', 'talks', 'message', 'mailto']
+spamicity =  95.1
+message is spam

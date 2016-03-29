@@ -1,0 +1,7 @@
+numerator
+[Decimal('0.821'), Decimal('0.966'), Decimal('0.886'), Decimal('0.889'), Decimal('0.875'), Decimal('0.977'), Decimal('0.833'), Decimal('0.820'), Decimal('0.138'), Decimal('0.832')]
+denominator
+[Decimal('0.179'), Decimal('0.034'), Decimal('0.114'), Decimal('0.111'), Decimal('0.125'), Decimal('0.023'), Decimal('0.167'), Decimal('0.180'), Decimal('0.862'), Decimal('0.168')]
+['Service', 'mandark', 'Science', 'WORLD', 'Exchange', 'FFFF00', 'tribes', 'ONLINE', 'Postfix', 'Century']
+spamicity =  100
+message is spam

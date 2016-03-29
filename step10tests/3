@@ -1,0 +1,7 @@
+numerator
+[Decimal('0.423'), Decimal('0.0532'), Decimal('0.313'), Decimal('0.336'), Decimal('0.777'), Decimal('0.622'), Decimal('0.833'), Decimal('0.413'), Decimal('0.217'), Decimal('0.244')]
+denominator
+[Decimal('0.577'), Decimal('0.947'), Decimal('0.687'), Decimal('0.664'), Decimal('0.223'), Decimal('0.378'), Decimal('0.167'), Decimal('0.587'), Decimal('0.783'), Decimal('0.756')]
+['Delivered', 'required', 'fetchmail', 'single', 'click', 'Status', 'ratings', 'Return', 'jalapeno', 'supplied']
+spamicity =  1.68
+message is NOT spam

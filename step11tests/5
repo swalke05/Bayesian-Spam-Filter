@@ -1,0 +1,7 @@
+numerator
+[Decimal('0.776'), Decimal('0.856'), Decimal('0.857'), Decimal('0.566'), Decimal('0.857'), Decimal('0.175'), Decimal('0.75'), Decimal('0.297'), Decimal('0.689'), Decimal('0.482')]
+denominator
+[Decimal('0.224'), Decimal('0.144'), Decimal('0.143'), Decimal('0.434'), Decimal('0.143'), Decimal('0.825'), Decimal('0.25'), Decimal('0.703'), Decimal('0.311'), Decimal('0.518')]
+['alternative', 'Price', 'fraction', 'exact', 'Spend', 'Tuesday', 'remove', 'thing', 'enter', 'Click']
+spamicity =  99.7
+message is spam

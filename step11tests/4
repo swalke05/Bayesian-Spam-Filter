@@ -1,0 +1,7 @@
+numerator
+[Decimal('0.785'), Decimal('0.963'), Decimal('0.441'), Decimal('0.766')]
+denominator
+[Decimal('0.215'), Decimal('0.037'), Decimal('0.559'), Decimal('0.234')]
+['desire', 'GUARANTEED', 'performance', 'pleasure']
+spamicity =  99.6
+message is spam

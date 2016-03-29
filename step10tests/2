@@ -1,0 +1,7 @@
+numerator
+[Decimal('0.473'), Decimal('0.704'), Decimal('0.170'), Decimal('0.0733'), Decimal('0.241'), Decimal('0.00322'), Decimal('0.524'), Decimal('0.0278'), Decimal('0.0710'), Decimal('0.0519')]
+denominator
+[Decimal('0.527'), Decimal('0.296'), Decimal('0.830'), Decimal('0.927'), Decimal('0.759'), Decimal('0.997'), Decimal('0.476'), Decimal('0.972'), Decimal('0.929'), Decimal('0.948')]
+['currently', 'quoted', 'Smith', 'installed', 'Authentication', 'Resent', 'before', 'amd64', 'failed', 'stable']
+spamicity =  4.68E-7
+message is NOT spam

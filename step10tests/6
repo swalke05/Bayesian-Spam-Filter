@@ -1,0 +1,7 @@
+numerator
+[Decimal('0.125'), Decimal('0.935'), Decimal('0.173'), Decimal('0.298'), Decimal('0.818'), Decimal('0.203'), Decimal('0.829'), Decimal('0.771'), Decimal('0.0574'), Decimal('0.331')]
+denominator
+[Decimal('0.875'), Decimal('0.065'), Decimal('0.827'), Decimal('0.702'), Decimal('0.182'), Decimal('0.797'), Decimal('0.171'), Decimal('0.229'), Decimal('0.943'), Decimal('0.669')]
+['Errors', 'Oregon', 'spamassassin', 'group', 'Importance', 'interesting', 'MimeOLE', 'buying', 'request', 'might']
+spamicity =  9.31
+message is NOT spam

@@ -1,0 +1,7 @@
+numerator
+[Decimal('0.504'), Decimal('0.181'), Decimal('0.454'), Decimal('0.439'), Decimal('0.746'), Decimal('0.362'), Decimal('0.341'), Decimal('0.501'), Decimal('0.581'), Decimal('0.0436')]
+denominator
+[Decimal('0.496'), Decimal('0.819'), Decimal('0.546'), Decimal('0.561'), Decimal('0.254'), Decimal('0.638'), Decimal('0.659'), Decimal('0.499'), Decimal('0.419'), Decimal('0.956')]
+['results', 'Thursday', 'examples', 'claimed', 'subtle', 'happen', 'check', 'giant', 'August', 'Hughes']
+spamicity =  0.789
+message is NOT spam

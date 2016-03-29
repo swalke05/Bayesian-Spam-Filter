@@ -1,0 +1,7 @@
+numerator
+[Decimal('0.882'), Decimal('0.887'), Decimal('0.954'), Decimal('0.956'), Decimal('0.889'), Decimal('0.893'), Decimal('0.873'), Decimal('0.981'), Decimal('0.924'), Decimal('0.875')]
+denominator
+[Decimal('0.118'), Decimal('0.113'), Decimal('0.046'), Decimal('0.044'), Decimal('0.111'), Decimal('0.107'), Decimal('0.127'), Decimal('0.019'), Decimal('0.076'), Decimal('0.125')]
+['credit', 'battle', 'Green', 'Money', 'straightforward', 'employed', 'launched', 'investment', 'Choice', 'makers']
+spamicity =  100
+message is spam

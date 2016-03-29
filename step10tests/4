@@ -1,0 +1,7 @@
+numerator
+[Decimal('0.125'), Decimal('0.0574'), Decimal('0.75'), Decimal('0.173'), Decimal('0.413'), Decimal('0.665'), Decimal('0.818'), Decimal('0.829'), Decimal('0.101'), Decimal('0.460')]
+denominator
+[Decimal('0.875'), Decimal('0.943'), Decimal('0.25'), Decimal('0.827'), Decimal('0.587'), Decimal('0.335'), Decimal('0.182'), Decimal('0.171'), Decimal('0.899'), Decimal('0.540')]
+['Errors', 'request', 'heavily', 'spamassassin', 'Sunday', 'ticket', 'Importance', 'MimeOLE', 'Beenthere', 'include']
+spamicity =  1.57
+message is NOT spam

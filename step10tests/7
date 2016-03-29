@@ -1,0 +1,7 @@
+numerator
+[Decimal('0.974'), Decimal('0.776'), Decimal('0.931'), Decimal('0.852'), Decimal('0.788'), Decimal('0.864'), Decimal('0.981'), Decimal('0.819'), Decimal('0.882'), Decimal('0.0574')]
+denominator
+[Decimal('0.026'), Decimal('0.224'), Decimal('0.069'), Decimal('0.148'), Decimal('0.212'), Decimal('0.136'), Decimal('0.019'), Decimal('0.181'), Decimal('0.118'), Decimal('0.943')]
+['padding', 'alternative', 'Protection', 'title', 'csmining', 'compensation', 'investment', 'nation', 'credit', 'request']
+spamicity =  100
+message is spam

@@ -1,0 +1,7 @@
+numerator
+[Decimal('0.986'), Decimal('0.997'), Decimal('0.998'), Decimal('1'), Decimal('0.987'), Decimal('0.984'), Decimal('0.984'), Decimal('1'), Decimal('0.996'), Decimal('0.995')]
+denominator
+[Decimal('0.014'), Decimal('0.003'), Decimal('0.002'), Decimal('0'), Decimal('0.013'), Decimal('0.016'), Decimal('0.016'), Decimal('0'), Decimal('0.004'), Decimal('0.005')]
+['scores', 'Firewall', 'SCORE', 'Custom', 'whitelisted', 'transitional', 'XHTML', 'Barracuda', 'reputation', 'breakdown']
+spamicity =  100
+message is spam

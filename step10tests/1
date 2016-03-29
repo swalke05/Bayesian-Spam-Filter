@@ -1,0 +1,7 @@
+numerator
+[Decimal('0.749'), Decimal('0.935'), Decimal('0.673'), Decimal('0.772'), Decimal('0.601'), Decimal('0.968'), Decimal('0.769'), Decimal('0.637'), Decimal('0.788'), Decimal('0.776')]
+denominator
+[Decimal('0.251'), Decimal('0.065'), Decimal('0.327'), Decimal('0.228'), Decimal('0.399'), Decimal('0.032'), Decimal('0.231'), Decimal('0.363'), Decimal('0.212'), Decimal('0.224')]
+['during', 'royal', 'saving', 'popular', 'Transfer', 'prices', 'treatment', 'multipart', 'csmining', 'alternative']
+spamicity =  100
+message is spam
