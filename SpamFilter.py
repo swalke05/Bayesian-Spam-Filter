@@ -8,7 +8,8 @@ numSpamEmails = 1077 #Total number of spam emails from learning phase
 
 if __name__ == "__main__":
 
-
+    hamDictionary = []
+    spamDictionary = []
     dictionaries = ()
 
     if (len(sys.argv) == 2):
@@ -18,15 +19,31 @@ if __name__ == "__main__":
         sys.exit()
 
 
-    dictionaries = generateDictionaries()
-    hamDictionary = dictionaries[0]
-    spamDictionary = dictionaries[1]
+    #generateDictionaries()
+    f = open('HAM_DICTIONARY', 'r')
+    content = f.readlines()
+    for line in content:
+        hamDictionary.append(line)
+
+    f.close
+
+    f = open('SPAM_DICTIONARY', 'r')
+    content = f.readlines()
+    for line in content:
+        spamDictionary.append(line)
+    f.close
+
+
+
+    # hamDictionary = dictionaries[0]
+    # spamDictionary = dictionaries[1]
 
     # for item in hamDictionary:
     #     print item
     # print "between"
     # for item in spamDictionary:
     #     print item
+    # sys.exit()
 
     #chance = estimateClassContains("Guaranteed",hamDictionary, numHamEmails)
     #chance = estimateClassContains("",spamDictionary, numSpamEmails)

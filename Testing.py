@@ -8,26 +8,29 @@ import math
 def estimateClassContains(word, dictionary, numEmails):
     estimate = 0
     i = 0
+    occurrences = 0
 
     for entry in dictionary:
         #print i
         i+=1
         #print entry[0]
-        if (entry[0] == word):
-            print entry[0], "appears", entry[1], "times in", numEmails, "emails"
-            if (entry[1] >= 0):
+        dictWord = entry.split('\'')[1].split('\'')[0]
+        occurrences = entry.split(' ')[1].split(')')[0]
+
+        if (dictWord == word):
+            print dictWord, "appears", occurrences, "times in", numEmails, "emails"
+            if (occurrences > 0):
                 getcontext().prec = 3
-                estimate = Decimal(entry[1])/Decimal(numEmails)
+                estimate = Decimal(occurrences)/Decimal(numEmails)
                 break
             else:
                 estimate = 0
-
                 break
     #if (estimate == 0):
 
         #print "less than 5 occurrences for", word
 
-    return (estimate, entry[1])
+    return (estimate, occurrences)
 
 def calcChanceHam(hamEstimate, spamEstimate):
     chanceHam = 0

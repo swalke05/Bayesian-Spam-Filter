@@ -21,8 +21,9 @@ def generateDictionaries():
     path = "dataset2/TRAINING/"
 
     parseLabels(labelsFile, hamLabels, spamLabels)
-
     splitFiles(hamLabels, spamLabels, hamFiles, spamFiles)
+
+
 
     #print "ham files"
     for file in hamFiles:
@@ -50,8 +51,17 @@ def generateDictionaries():
 
     # sys.exit()
 
+    f = open('HAM_DICTIONARY','w')
+    for item in hamCollection:
+        print "item = ", item
+        f.write(str(item)+"\n") # python will convert \n to os.linesep
+    f.close() # you can omit in most cases as the destructor will call it
 
-    return (hamCollection,spamCollection)
+    f = open('SPAM_DICTIONARY','w')
+    for item in spamCollection:
+        f.write(str(item)+"\n") # python will convert \n to os.linesep
+    f.close() # you can omit in most cases as the destructor will call it
+
 
 def isWord(word):
     if (word.lower() == "cellpadding"):
